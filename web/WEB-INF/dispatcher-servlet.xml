@@ -25,6 +25,7 @@
     <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
     <property name="order" value="1"/>
   </bean>
+
   <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
     <property name="definitions">
       <list>
@@ -32,5 +33,12 @@
       </list>
     </property>
   </bean>
+
+<!--  <mvc:interceptors>-->
+<!--    <mvc:interceptor>-->
+<!--      <mvc:mapping path="/**"/>-->
+<!--      <bean id="loggerInterceptor" class="com.jeon.board.common.LoggerInterceptor"></bean>-->
+<!--    </mvc:interceptor>-->
+<!--  </mvc:interceptors>-->
 
 </beans>
