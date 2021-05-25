@@ -16,13 +16,13 @@ public class MainController {
 
   @RequestMapping(value = "/main/board")
   public ModelAndView mainPage(){
-    logger.trace("Trace Level 테스트");
     logger.debug("DEBUG Level 테스트");
     logger.info("INFO Level 테스트");
     logger.warn("Warn Level 테스트");
     logger.error("ERROR Level 테스트");
 
     System.out.println("Check log ");
+
     ModelAndView mav = new ModelAndView();
     mav.addObject("message", "TEST TEXT");
     mav.setViewName("mainViewPage");
