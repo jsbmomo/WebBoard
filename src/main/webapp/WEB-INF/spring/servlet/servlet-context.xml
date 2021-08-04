@@ -12,6 +12,9 @@
 
   <mvc:annotation-driven/>
 
+<!--  &lt;!&ndash; @Autowired등 설정 잡을때 &ndash;&gt;-->
+  <context:annotation-config/>
+
   <context:component-scan base-package="com.jeon.board"/>
 
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

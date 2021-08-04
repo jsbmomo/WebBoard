@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+  <context:property-placeholder location="classpath:application.properties" />
+  <mybatis-spring:scan base-package="com.jeon.board"/>
+
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClass}"/>
+    <property name="url" value="${jdbc.url}"/>
+    <property name="username" value="${jdbc.username}"/>
+    <property name="password" value="${jdbc.password}"/>
+  </bean>
+
+  <!--  SqlSessionTemplate를 bean 으로 등록-->
+  <!--  클래스에서 SqlSessionTemplate 필드(Field)방식으로 주입하여 사용-->
+  <!--  SqlSession (SqlSessionTemplate)은 프록시 사용 및 스레드 안전 SqlSession 메서드를 호출-->
+<!--  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--    <property name="dataSource" ref="dataSource" />-->
+<!--    <property name="mapperLocations" value="classpath:mappers/**/*.xml" />-->
+<!--  </bean>-->
+
+<!--  <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
+<!--    <constructor-arg index="0" ref="sqlSession"/>-->
+<!--  </bean>-->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    <property name="mapperLocations" value="classpath:mappers/**/*.xml"  />
+  </bean>
+
+  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+    <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+  </bean>
+
+</beans>

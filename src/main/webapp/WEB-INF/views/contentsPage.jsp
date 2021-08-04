@@ -11,6 +11,8 @@
   <title>contents</title>
 </head>
 <body>
-  <h2>Value</h2>
+  <h2>${mainText}</h2>
+  <h2>${mainData}</h2>
+  <h2>${mainDate}</h2>
 </body>
 </html>

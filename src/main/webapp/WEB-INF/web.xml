@@ -8,7 +8,7 @@
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/spring/servlet/root-context.xml</param-value>
+    <param-value>/WEB-INF/spring/root-context.xml</param-value>
   </context-param>
 
 <!--  <listener>-->
@@ -31,7 +31,8 @@
 
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/board/*</url-pattern>
   </servlet-mapping>
+
 
 </web-app>
