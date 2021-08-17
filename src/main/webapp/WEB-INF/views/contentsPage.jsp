@@ -11,8 +11,11 @@
   <title>contents</title>
 </head>
 <body>
-  <h2>${mainText}</h2>
-  <h2>${mainData}</h2>
-  <h2>${mainDate}</h2>
+  <h2>${mainSeq}</h2>
+  <h2>${mainTitle}</h2>
+  <h2>${mainWriter}</h2>
+  <h2>${mainContent}</h2>
+  <h2>${mainData}</h2><h2>${mainCnt}</h2>
+
 </body>
 </html>

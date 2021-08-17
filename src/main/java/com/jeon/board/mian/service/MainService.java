@@ -1,10 +1,10 @@
-package com.jeon.board.dao;
+package com.jeon.board.mian.service;
 
 import com.jeon.board.dto.MainDTO;
 
 import java.util.List;
 
-public interface MainDAO {
+public interface MainService {
 
   public List<MainDTO> selectMainList();
 

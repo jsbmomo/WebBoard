@@ -1,4 +1,4 @@
-package com.jeon.board.dao;
+package com.jeon.board.mian.dao;
 
 
 import com.jeon.board.dto.MainDTO;

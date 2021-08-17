@@ -1,8 +1,8 @@
-package com.jeon.board.service;
+package com.jeon.board.mian.service;
 
 
 import com.jeon.board.dto.MainDTO;
-import com.jeon.board.dao.MainDAO;
+import com.jeon.board.mian.dao.MainDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

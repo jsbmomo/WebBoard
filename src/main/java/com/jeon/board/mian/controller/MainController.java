@@ -1,8 +1,8 @@
-package com.jeon.board.controller;
+package com.jeon.board.mian.controller;
 
 
 import com.jeon.board.dto.MainDTO;
-import com.jeon.board.service.MainServiceImpl;
+import com.jeon.board.mian.service.MainServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,12 @@ public class MainController {
 
   @RequestMapping(value = "/")
   public String home(){
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("/mainPage");
+    //mv.addObject();
     logger.info("main page move");
-    return "mainPage";
+    //return mv;
+    return "/mainPage";
   }
 
 
@@ -62,16 +66,22 @@ public class MainController {
 
     logger.info("MainList size : " + mainList.size());
     for(int i = 0; i < mainList.size(); i++) {
-      System.out.println(mainList.get(i).getA());
-      System.out.println(mainList.get(i).getData());
-      System.out.println(mainList.get(i).getDate());
+      System.out.println(mainList.get(i).getSeq());
+      System.out.println(mainList.get(i).getTitle());
+      System.out.println(mainList.get(i).getWriter());
+      System.out.println(mainList.get(i).getContent());
+      System.out.println(mainList.get(i).getRegDate());
+      System.out.println(mainList.get(i).getCnt());
     }
 
     logger.info("Print DB Data");
 
-    model.addAttribute("mainText", mainList.get(0).getA());
-    model.addAttribute("mainData", mainList.get(0).getData());
-    model.addAttribute("mainDate", mainList.get(0).getDate());
+    model.addAttribute("mainSeq", mainList.get(0).getSeq());
+    model.addAttribute("mainTitle", mainList.get(0).getTitle());
+    model.addAttribute("mainWriter", mainList.get(0).getWriter());
+    model.addAttribute("mainContent", mainList.get(0).getContent());
+    model.addAttribute("mainData", mainList.get(0).getRegDate());
+    model.addAttribute("mainCnt", mainList.get(0).getCnt());
 
     logger.info("Return DB Data");
 

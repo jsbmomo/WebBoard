@@ -4,6 +4,6 @@
 <mapper namespace="com.joen.board.mappers.main.MainMapper">
 
   <select id="selectMainList" resultType="com.jeon.board.dto.MainDTO">
-    select * from TABLE1 order by a desc limit 1
+    select * from mainview
   </select>
 </mapper>

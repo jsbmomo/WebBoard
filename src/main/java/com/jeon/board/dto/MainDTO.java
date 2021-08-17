@@ -1,36 +1,63 @@
 package com.jeon.board.dto;
 
-
-import java.io.Serializable;
 import java.util.Date;
 
 public class MainDTO  {
-  private String a;
-  private String data;
-  private String date;
 
-  public String getA() {
-    return a;
+  private int seq;
+  private String title;
+  private String writer;
+  private String content;
+  private Date regDate;
+  private int cnt;
+
+
+  public int getSeq() {
+    return seq;
   }
 
-  public void setA(String a) {
-    this.a = a;
+  public void setSeq(int seq) {
+    this.seq = seq;
   }
 
-  public String getData() {
-    return data;
+  public String getTitle() {
+    return title;
   }
 
-  public void setData(String data) {
-    this.data = data;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
-  public String getDate() {
-    return date;
+  public String getWriter() {
+    return writer;
   }
 
-  public void setDate(String date) {
-    this.date = date;
+  public void setWriter(String writer) {
+    this.writer = writer;
+  }
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Date getRegDate() {
+    return regDate;
+  }
+
+  public void setRegDate(Date regDate) {
+    this.regDate = regDate;
+  }
+
+  public int getCnt() {
+    return cnt;
+  }
+
+  public void setCnt(int cnt) {
+    this.cnt = cnt;
   }
 
 }
