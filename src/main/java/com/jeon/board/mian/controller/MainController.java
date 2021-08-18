@@ -2,7 +2,9 @@ package com.jeon.board.mian.controller;
 
 
 import com.jeon.board.dto.MainDTO;
+import com.jeon.board.dto.UsersDTO;
 import com.jeon.board.mian.service.MainServiceImpl;
+import com.jeon.board.users.service.UsersServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class MainController {
 
   @Autowired
   private MainServiceImpl mainService;
+
+  @Autowired
+  private UsersServiceImpl usersService;
 
   @RequestMapping(value = "/")
   public String home(){
@@ -55,6 +60,21 @@ public class MainController {
   public String subPage(){
     return "contentsPage";
   }
+
+  @RequestMapping(value = "/user_select")
+  public String selectUsers(Model model) throws Exception {
+    logger.info("USERS");
+
+    List<UsersDTO> users = this.usersService.selectUserList();
+
+    model.addAttribute("id", users.get(0).getId());
+    model.addAttribute("pw", users.get(0).getPassword());
+    model.addAttribute("name", users.get(0).getName());
+    model.addAttribute("role", users.get(0).getRole());
+    
+    return "login";
+  }
+
 
   @RequestMapping(value = "/db_select")
   public String selectValue(Model model) throws Exception {

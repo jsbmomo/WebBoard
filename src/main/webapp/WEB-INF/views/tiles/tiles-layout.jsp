@@ -22,7 +22,7 @@
     let CONTEXT_PATH = "${CONTEXT_PATH}";
     let RESOURCES_PATH = "${RESOURCES_PATH}";
   </script>
-  <link rel="stylesheet" href="${RESOURCES_PATH}/css/common.css">
+  <link rel="stylesheet" href="~/css/common.css">
   <title><tiles:insertAttribute name="title" /></title>
 </head>
 
