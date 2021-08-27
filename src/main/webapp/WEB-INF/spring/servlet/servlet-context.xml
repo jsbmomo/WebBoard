@@ -37,7 +37,9 @@
     </property>
   </bean>
 
-<!--  <mvc:interceptors>-->
+  <mvc:resources mapping="/resources/**" location="/resources/css/" />
+
+  <!--  <mvc:interceptors>-->
 <!--    <mvc:interceptor>-->
 <!--      <mvc:mapping path="/**"/>-->
 <!--      <bean id="loggerInterceptor" class="com.jeon.board.common.LoggerInterceptor"></bean>-->

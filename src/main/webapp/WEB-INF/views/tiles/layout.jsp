@@ -7,27 +7,65 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
-
-<set var="CONTEXT_PATH" value="${pageContext.request.contextPath}" scope="application"/>
-<set var="RESOURCES_PATH" value="${CONTEXT_PATH}/resources" scope="application"/>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <script type="text/javascript">
-    let CONTEXT_PATH = "${CONTEXT_PATH}";
-    let RESOURCES_PATH = "${RESOURCES_PATH}";
-  </script>
-  <link rel="stylesheet" href="~/css/common.css">
+  <link rel="stylesheet" href="${path}/css/common.css">
   <title><tiles:insertAttribute name="title" /></title>
 </head>
 
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .wrap{
+        width: 100%;
+    }
+
+    .Header, .content, .Footer{
+        width: 100%;
+        float: left;
+    }
+
+    .Header, .Footer{
+        height: 8em;
+    }
+
+    .SideBar{
+        width: 30%;
+        height: 600px;
+        background-color: #FFBB00;
+        float: left;
+    }
+
+    .page_content{
+        width: 90%;
+        height: 600px;
+        background-color: #EAEAEA;
+        float: left;
+    }
+
+    .Header{
+        background-color: #ABF200;
+    }
+
+    .Footer{
+        background-color: #FF00DD;
+    }
+
+</style>
+
+
 <body>
-  <div class='wrap'>
+  <div class="wrap">
     <tiles:insertAttribute name="header" />
     <div class='content'>
       <tiles:insertAttribute name="left"/>
