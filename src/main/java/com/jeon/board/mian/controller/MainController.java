@@ -26,9 +26,6 @@ public class MainController {
   @Autowired
   private MainServiceImpl mainService;
 
-  @Autowired
-  private UsersServiceImpl usersService;
-
   @RequestMapping(value = "/")
   public String home(){
     ModelAndView mv = new ModelAndView();
@@ -59,20 +56,6 @@ public class MainController {
   @RequestMapping(value = "/home")
   public String subPage(){
     return "contentsPage";
-  }
-
-  @RequestMapping(value = "/user_select")
-  public String selectUsers(Model model) throws Exception {
-    logger.info("USERS");
-
-    List<UsersDTO> users = this.usersService.selectUserList();
-
-    model.addAttribute("id", users.get(0).getId());
-    model.addAttribute("pw", users.get(0).getPassword());
-    model.addAttribute("name", users.get(0).getName());
-    model.addAttribute("role", users.get(0).getRole());
-    
-    return "login";
   }
 
 

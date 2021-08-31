@@ -16,65 +16,28 @@
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="${path}/css/common.css">
+  <link href="${path}/resources/css/common.css" rel="stylesheet" />
   <title><tiles:insertAttribute name="title" /></title>
 </head>
 
-
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    .wrap{
-        width: 100%;
-    }
-
-    .Header, .content, .Footer{
-        width: 100%;
-        float: left;
-    }
-
-    .Header, .Footer{
-        height: 8em;
-    }
-
-    .SideBar{
-        width: 30%;
-        height: 600px;
-        background-color: #FFBB00;
-        float: left;
-    }
-
-    .page_content{
-        width: 90%;
-        height: 600px;
-        background-color: #EAEAEA;
-        float: left;
-    }
-
-    .Header{
-        background-color: #ABF200;
-    }
-
-    .Footer{
-        background-color: #FF00DD;
-    }
-
-</style>
-
-
 <body>
-  <div class="wrap">
+  <header>
     <tiles:insertAttribute name="header" />
-    <div class='content'>
+  </header>
+
+  <div style="display: flex; width: 100%;">
+    <aside>
       <tiles:insertAttribute name="left"/>
-      <div class="page_content">
-        <tiles:insertAttribute name="body"/>
-      </div>
+    </aside>
+    <div class='content'>
+      <tiles:insertAttribute name="body"/>
     </div>
-    <tiles:insertAttribute name="foot" />
   </div>
+
+  <footer>
+    <tiles:insertAttribute name="foot" />
+  </footer>
+
 </body>
 
 </html>

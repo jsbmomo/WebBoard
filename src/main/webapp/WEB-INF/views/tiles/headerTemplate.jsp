@@ -6,8 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="/WEB-INF/css/headerstyle.css"/>
 
-<header class="header">
-  Header
-</header>
+<div>
+  img
+</div>
+<div>
+  nav
+</div>

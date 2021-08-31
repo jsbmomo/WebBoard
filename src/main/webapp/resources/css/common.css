@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+}
+
+header, footer{
+    display: inline-block;
+    width: 100%;
+    height: 8em;
+    background-color: #ABF200;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+}
+
+aside{
+    width: 300px;
+    background-color: #FFBB00;
+    float: left;
+}
+
+.page_content{
+    width: 100%;
+    height: auto;
+    background-color: #EAAAAA;
+    float: left;
+}
+
