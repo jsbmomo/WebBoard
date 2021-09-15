@@ -7,9 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div>
-  img
-</div>
-<div>
-  nav
-</div>
+<nav id="headerMenu">
+  <ul>
+    <li><a class="menuLink" href="#">메인 페이지</a></li>
+    <li><a class="menuLink" href="#">최근 게시글</a></li>
+    <li><a class="menuLink" href="#">공지사항</a></li>
+    <li><a class="menuLink" href="#">태그 목록</a></li>
+    <li><a class="menuLink" href="#">설정</a></li>
+  </ul>
+</nav>

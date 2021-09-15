@@ -1,0 +1,23 @@
+#headerMenu {
+    width: 100%;
+}
+
+#ul {
+    text-align: center;
+    float: left;
+}
+#li{
+    display: inline-block;
+    width: 200px;
+    list-style: none;
+    color: white;
+    line-height: 30px;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#headerMenu .menuLink {
+    text-decoration: none;
+}
