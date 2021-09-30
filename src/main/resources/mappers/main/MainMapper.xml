@@ -6,4 +6,26 @@
   <select id="selectMainList" resultType="com.jeon.board.dto.MainDTO">
     select * from mainview
   </select>
+
+  <select id="selectContents" resultType="com.jeon.board.dto.MainDTO" parameterType="Integer">
+    select * from mainview where seq=#{value}
+  </select>
+
+  <insert id="insertContents" parameterType="com.jeon.board.dto.MainDTO">
+    insert into mainview(
+        TITLE, WRITER, CONTENT
+    ) VALUES (
+        #{title}, #{writer}, #{content}
+    )
+  </insert>
+
+  <update id="updateContents" parameterType="com.jeon.board.dto.MainDTO" >
+    update mainview set TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
+    where seq = #{seq};
+  </update>
+
+  <delete id="removeContents" parameterType="Integer">
+    delete from mainview where seq=#{value}
+  </delete>
+
 </mapper>

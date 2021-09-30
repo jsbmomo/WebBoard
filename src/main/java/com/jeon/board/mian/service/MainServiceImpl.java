@@ -24,4 +24,24 @@ public class MainServiceImpl implements MainService {
     logger.info("MainServiceImpl print");
     return dao.selectMainList();
   }
+
+  @Override
+  public MainDTO selectContents(int seq) {
+    return dao.selectContents(seq);
+  }
+
+  @Override
+  public void insertContents(MainDTO contents) {
+    dao.insertContents(contents);
+  }
+
+  @Override
+  public int updateContents(int seq) {
+    return dao.updateContents(seq);
+  }
+
+  @Override
+  public void removeContents(int seq) {
+    dao.removeContents(seq);
+  }
 }

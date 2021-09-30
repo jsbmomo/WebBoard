@@ -17,14 +17,35 @@ public class MainDAOImpl implements MainDAO {
   private static final String NAMESPACE = "com.joen.board.mappers.main.MainMapper";
 
   @Autowired
-  SqlSession sqlSession;
+  private SqlSession sqlSession;
 
   @Override
   public List<MainDTO> selectMainList() {
     logger.info("DTO START");
-
     return sqlSession.selectList(NAMESPACE + ".selectMainList");
   }
+
+  @Override
+  public MainDTO selectContents(int seq) {
+    return sqlSession.selectOne(NAMESPACE + ".selectContents", seq);
+  }
+
+  @Override
+  public void insertContents(MainDTO contents) {
+    sqlSession.insert(NAMESPACE + ".insertContents", contents);
+  }
+
+  @Override
+  public int updateContents(int seq) {
+    return sqlSession.update(NAMESPACE + ".updateContents", seq);
+  }
+
+  @Override
+  public void removeContents(int seq) {
+    logger.info("REMOVE");
+    sqlSession.delete(NAMESPACE + ".removeContents", seq);
+  }
+
 
 
 }
