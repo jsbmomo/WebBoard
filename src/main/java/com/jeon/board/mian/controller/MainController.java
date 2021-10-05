@@ -27,14 +27,14 @@ public class MainController {
   @Autowired
   private MainServiceImpl mainService;
 
-  @RequestMapping(value = "/")
-  public String home(){
+  @RequestMapping(value = "")
+  public ModelAndView home(){
     ModelAndView mv = new ModelAndView();
-    mv.setViewName("/mainPage");
+    mv.setViewName("mainPage");
     //mv.addObject();
     logger.info("main page move");
     //return mv;
-    return "/mainPage";
+    return mv;
   }
 
 
