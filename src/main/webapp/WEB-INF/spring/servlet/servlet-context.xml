@@ -28,7 +28,6 @@
     <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
     <property name="order" value="1"/>
   </bean>
-
   <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
     <property name="definitions">
       <list>
@@ -37,8 +36,7 @@
     </property>
   </bean>
 
-  <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
-
+  <mvc:resources mapping="/resources/**" location="/resources/" />
   <!--  <mvc:interceptors>-->
 <!--    <mvc:interceptor>-->
 <!--      <mvc:mapping path="/**"/>-->
