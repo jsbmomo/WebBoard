@@ -2,9 +2,7 @@ package com.jeon.board.mian.controller;
 
 
 import com.jeon.board.dto.MainDTO;
-import com.jeon.board.dto.UsersDTO;
 import com.jeon.board.mian.service.MainServiceImpl;
-import com.jeon.board.users.service.UsersServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +25,10 @@ public class MainController {
   @Autowired
   private MainServiceImpl mainService;
 
-  @RequestMapping(value = "/")
+  @RequestMapping(value = "/view/home")
   public ModelAndView home(){
     ModelAndView mv = new ModelAndView();
-    mv.setViewName("mainPage");
+    mv.setViewName("board/mainPage");
     //mv.addObject();
     logger.info("main page move~!");
     //return mv;
@@ -45,11 +43,9 @@ public class MainController {
     logger.warn("Warn Level 테스트");
     logger.error("ERROR Level 테스트");
 
-    System.out.println("Check log ");
-
     ModelAndView mav = new ModelAndView();
     mav.addObject("message", "TEST TEXT");
-    mav.setViewName("mainPage");
+    mav.setViewName("board/mainPage");
 
     return mav;
   }
@@ -62,14 +58,14 @@ public class MainController {
 
     ModelAndView mav = new ModelAndView();
     mav.addObject("contents", contents);
-    mav.setViewName("mainPage");
+    mav.setViewName("board/mainPage");
 
     return mav;
   }
 
   @RequestMapping(value = "/home")
   public String subPage(){
-    return "contentsPage";
+    return "board/contentsPage";
   }
 
 
@@ -102,7 +98,7 @@ public class MainController {
 
     logger.info("Return DB Data");
 
-    return "contentsPage";
+    return "board/contentsPage";
   }
 
 }
