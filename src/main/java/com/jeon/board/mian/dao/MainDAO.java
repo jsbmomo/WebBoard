@@ -1,10 +1,14 @@
 package com.jeon.board.mian.dao;
 
-import com.jeon.board.dto.MainDTO;
+import com.jeon.board.mian.dto.MainDTO;
+import com.jeon.board.mian.dto.NoticeDTO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MainDAO {
+
+  public List<NoticeDTO> noticeList(Map<String, Integer> page);
 
   public List<MainDTO> selectMainList();
 

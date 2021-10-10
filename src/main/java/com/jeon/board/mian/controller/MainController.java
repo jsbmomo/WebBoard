@@ -1,23 +1,28 @@
 package com.jeon.board.mian.controller;
 
 
-import com.jeon.board.dto.MainDTO;
+import com.jeon.board.mian.dto.MainDTO;
+import com.jeon.board.mian.dto.NoticeDTO;
 import com.jeon.board.mian.service.MainServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-// Mybatis TEST https://velog.io/@wimes/2.-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95-Spring-MyBatis-MySQL%EC%9D%98-%EC%84%A4%EC%A0%95-2zk4cf5gof
-// Mybatis SET https://dalpaeng00.tistory.com/83
 
 @Controller
+@RequestMapping(value = "/main")
 public class MainController {
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -25,23 +30,46 @@ public class MainController {
   @Autowired
   private MainServiceImpl mainService;
 
-  @RequestMapping(value = "/view/home")
-  public ModelAndView home(){
+  @RequestMapping(value = "")
+  public ModelAndView mainPage() {
+    logger.info("main page");
+
+    Map<String, Integer> page = new HashMap<String, Integer>();
+    page.put("start", 0);
+    page.put("count", 5);
+
+    logger.info("START : " + page.size());
+
+    List<NoticeDTO> nc = mainService.noticeList(page);
+//    List<MainDTO> nc = mainService.selectMainList();
+
+    logger.debug("SIZE : " + nc.size());
+    logger.debug("DATA : " + nc.get(0).toString());
+
     ModelAndView mv = new ModelAndView();
+    mv.addObject("notice", nc);
     mv.setViewName("board/mainPage");
-    //mv.addObject();
-    logger.info("main page move~!");
-    //return mv;
+
     return mv;
   }
 
-
-  @RequestMapping(value = "/main/board")
-  public ModelAndView mainPage(){
+  @RequestMapping(value = "/notice")
+  public ModelAndView notice(HttpServletRequest request, HttpServletResponse response){
     logger.debug("DEBUG Level 테스트");
     logger.info("INFO Level 테스트");
     logger.warn("Warn Level 테스트");
     logger.error("ERROR Level 테스트");
+
+    Map<String, String> page = new HashMap<String, String>();
+
+    logger.debug(request.getParameter("start"));
+    logger.debug(request.getParameter("count"));
+
+
+//
+//    page.put("start", request.getParameter("start");
+//    page.put("count", request.getParameter("count");;
+//    mainService.noticeList();
 
     ModelAndView mav = new ModelAndView();
     mav.addObject("message", "TEST TEXT");

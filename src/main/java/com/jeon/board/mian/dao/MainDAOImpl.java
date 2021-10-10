@@ -1,7 +1,8 @@
 package com.jeon.board.mian.dao;
 
 
-import com.jeon.board.dto.MainDTO;
+import com.jeon.board.mian.dto.MainDTO;
+import com.jeon.board.mian.dto.NoticeDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("mainDAO")
 public class MainDAOImpl implements MainDAO {
@@ -18,6 +20,11 @@ public class MainDAOImpl implements MainDAO {
 
   @Autowired
   private SqlSession sqlSession;
+
+  @Override
+  public List<NoticeDTO> noticeList(Map<String, Integer> page) {
+    return sqlSession.selectList(NAMESPACE + ".noticeList", page);
+  }
 
   @Override
   public List<MainDTO> selectMainList() {

@@ -1,4 +1,4 @@
-package com.jeon.board.dto;
+package com.jeon.board.mian.dto;
 
 import java.util.Date;
 
@@ -60,4 +60,15 @@ public class MainDTO  {
     this.cnt = cnt;
   }
 
+  @Override
+  public String toString() {
+    return "MainDTO{" +
+        "seq=" + seq +
+        ", title='" + title + '\'' +
+        ", writer='" + writer + '\'' +
+        ", content='" + content + '\'' +
+        ", regDate=" + regDate +
+        ", cnt=" + cnt +
+        '}';
+  }
 }
