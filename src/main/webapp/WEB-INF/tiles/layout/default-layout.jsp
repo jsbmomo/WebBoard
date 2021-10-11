@@ -43,7 +43,9 @@
   <tiles:insertAttribute name="header"/>
   <div id="layoutSidenav">
     <tiles:insertAttribute name="left"/>
-    <tiles:insertAttribute name="body"/>
+      <div id="layoutSidenav_content">
+        <tiles:insertAttribute name="body"/>
+      </div>
   </div>
   <tiles:insertAttribute name="foot" />
 </body>

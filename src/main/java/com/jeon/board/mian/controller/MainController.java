@@ -78,7 +78,7 @@ public class MainController {
     return mav;
   }
 
-  @RequestMapping(value = "/main/board/{seq}")
+  @RequestMapping(value = "/board/{seq}")
   public ModelAndView boardContents(@PathVariable("seq") int uniqueNum) {
     logger.info("======SELECT CONTNETS======");
 
@@ -86,7 +86,7 @@ public class MainController {
 
     ModelAndView mav = new ModelAndView();
     mav.addObject("contents", contents);
-    mav.setViewName("board/mainPage");
+    mav.setViewName("board/noticePage");
 
     return mav;
   }

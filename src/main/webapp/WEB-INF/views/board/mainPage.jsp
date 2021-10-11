@@ -10,13 +10,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<div id="layoutSidenav_content">
   <main>
     <div class="container-fluid px-4">
       <h1 class="mt-4">Dashboard</h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
       </ol>
+
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table me-1"></i>
+          최신 공지물
+        </div>
+        <div class="card-body">
+          <table id="datatablesSimple">
+            <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>조회</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${notice}" var="notice">
+<%--              <tr onClick="window.open('링크주소','','')">--%>
+              <tr style="cursor: pointer;" onClick="noticeMove(`${notice.seq}`);">
+                <td><c:out value="${notice.seq}"/></td>
+                <td><c:out value="${notice.title}"/></td>
+                <td><c:out value="${notice.writer}"/></td>
+                <td><c:out value="${notice.frst_create_time}"/></td>
+                <td>0</td>
+              </tr>
+            </c:forEach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-xl-3 col-md-6">
           <div class="card bg-primary text-white mb-4">
@@ -75,41 +107,10 @@
           </div>
         </div>
       </div>
-      <div class="card mb-4">
-        <div class="card-header">
-          <i class="fas fa-table me-1"></i>
-          최신 공지물
-        </div>
-        <div class="card-body">
-          <table id="datatablesSimple">
-            <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-              <th>조회</th>
-            </tr>
-            </thead>
-            <tbody>
-              <c:forEach items="${notice}" var="notice">
-                <tr>
-                  <td><c:out value="${notice.seq}"/></td>
-                  <td><c:out value="${notice.title}"/></td>
-                  <td><c:out value="${notice.writer}"/></td>
-                  <td><c:out value="${notice.frst_create_time}"/></td>
-                  <td>0</td>
-                </tr>
-              </c:forEach>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   </main>
-</div>
 
-<script type="javascript">
+<script type='text/javascript'>
   console.log("page start");
   document.onload = function() {
     let xhr = new XMLHttpRequest();
@@ -130,6 +131,12 @@
 
   }
 
+  function noticeMove(noticeSeq) {
+    // event.stopPropagation();
+    console.log(noticeSeq);
+    // location.href = "/notice/" + noticeSeq;
+    location.href = "/board/main/board/" + noticeSeq;
+  }
 
 </script>
 
