@@ -2,7 +2,7 @@ package com.jeon.board.mian.dao;
 
 
 import com.jeon.board.mian.dto.MainDTO;
-import com.jeon.board.mian.dto.NoticeDTO;
+import com.jeon.board.notice.dto.NoticeDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

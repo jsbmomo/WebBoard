@@ -2,12 +2,11 @@ package com.jeon.board.mian.controller;
 
 
 import com.jeon.board.mian.dto.MainDTO;
-import com.jeon.board.mian.dto.NoticeDTO;
+import com.jeon.board.notice.dto.NoticeDTO;
 import com.jeon.board.mian.service.MainServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -79,23 +78,18 @@ public class MainController {
   }
 
   @RequestMapping(value = "/board/{seq}")
-  public ModelAndView boardContents(@PathVariable("seq") int uniqueNum) {
+  public String boardContents(Model model, @PathVariable("seq") int uniqueNum) {
     logger.info("======SELECT CONTNETS======");
 
     MainDTO contents = this.mainService.selectContents(uniqueNum);
 
-    ModelAndView mav = new ModelAndView();
-    mav.addObject("contents", contents);
-    mav.setViewName("board/noticePage");
 
-    return mav;
+
+    model.addAttribute("contents", contents);
+//    mav.setViewName();
+
+    return "board/noticePage";
   }
-
-  @RequestMapping(value = "/home")
-  public String subPage(){
-    return "board/contentsPage";
-  }
-
 
   @RequestMapping(value = "/db_select")
   public String selectValue(Model model) throws Exception {

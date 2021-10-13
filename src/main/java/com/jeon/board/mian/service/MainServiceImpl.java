@@ -3,7 +3,7 @@ package com.jeon.board.mian.service;
 
 import com.jeon.board.mian.dto.MainDTO;
 import com.jeon.board.mian.dao.MainDAO;
-import com.jeon.board.mian.dto.NoticeDTO;
+import com.jeon.board.notice.dto.NoticeDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

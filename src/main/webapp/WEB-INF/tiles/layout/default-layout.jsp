@@ -39,13 +39,12 @@
     참고. https://freehoon.tistory.com/130 -->
 
 <body class="sb-nav-fixed">
-  <div>hi</div>
   <tiles:insertAttribute name="header"/>
   <div id="layoutSidenav">
-    <tiles:insertAttribute name="left"/>
-      <div id="layoutSidenav_content">
-        <tiles:insertAttribute name="body"/>
-      </div>
+    <div id="layoutSidenav_content">
+      <tiles:insertAttribute name="left"/>
+      <tiles:insertAttribute name="body"/>
+    </div>
   </div>
   <tiles:insertAttribute name="foot" />
 </body>

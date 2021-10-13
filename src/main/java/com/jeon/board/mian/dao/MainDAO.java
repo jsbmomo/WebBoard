@@ -1,7 +1,7 @@
 package com.jeon.board.mian.dao;
 
 import com.jeon.board.mian.dto.MainDTO;
-import com.jeon.board.mian.dto.NoticeDTO;
+import com.jeon.board.notice.dto.NoticeDTO;
 
 import java.util.List;
 import java.util.Map;

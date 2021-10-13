@@ -3,10 +3,14 @@
 
 <mapper namespace="com.joen.board.mappers.main.MainMapper">
 
-  <select id="noticeList" parameterType="java.util.HashMap" resultType="com.jeon.board.mian.dto.NoticeDTO">
+  <select id="noticeList" parameterType="java.util.HashMap" resultType="com.jeon.board.notice.dto.NoticeDTO">
     select seq, title, writer, frst_create_time, content
     from notice
     order by seq desc limit #{start}, #{count};
+  </select>
+
+  <select id="selectNoticeContent" parameterType="Integer" resultType="com.jeon.board.notice.dto.NoticeDTO">
+    select * from notice where seq={seqNum}
   </select>
 
   <select id="selectMainList" resultType="com.jeon.board.mian.dto.MainDTO">

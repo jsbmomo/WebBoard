@@ -1,10 +1,9 @@
-import com.jeon.board.mian.dto.NoticeDTO;
+import com.jeon.board.notice.dto.NoticeDTO;
 import com.jeon.board.mian.service.MainService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import sun.applet.Main;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.jeon.board.mian.dto;
+package com.jeon.board.notice.dto;
 
 import java.sql.Timestamp;
 import java.util.Date;
