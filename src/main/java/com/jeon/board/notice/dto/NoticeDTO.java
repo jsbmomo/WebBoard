@@ -1,6 +1,5 @@
 package com.jeon.board.notice.dto;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class NoticeDTO {
@@ -9,7 +8,7 @@ public class NoticeDTO {
   private String title;
   private String writer;
   private String content;
-  private Timestamp frst_create_time;
+  private String frst_create_time;
   private Date last_update_time;
 
 
@@ -45,11 +44,11 @@ public class NoticeDTO {
     this.content = content;
   }
 
-  public Timestamp getFrst_create_time() {
+  public String getFrst_create_time() {
     return frst_create_time;
   }
 
-  public void setFrst_create_time(Timestamp frst_create_time) {
+  public void setFrst_create_time(String frst_create_time) {
     this.frst_create_time = frst_create_time;
   }
 

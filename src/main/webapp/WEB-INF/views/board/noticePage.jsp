@@ -12,14 +12,12 @@
 <main style="padding: 5px">
   <div>제목</div>
   <div>
-    <div>What the fuck</div>
-    <input type="text" id="noticeTitle" value="${title}"/>
-    <div>"${contents}"\\''''</div>
+    <input type="text" id="noticeTitle" value="${contents.title}" />
   </div>
 
   <div>등록일</div>
   <div>
-    <input type="text" id="noticeCreateDate" value="${contents.regDate}" />
+    <input type="text" id="noticeCreateDate" value="${contents.frst_create_time}" />
   </div>
 
   <div>수정일</div>

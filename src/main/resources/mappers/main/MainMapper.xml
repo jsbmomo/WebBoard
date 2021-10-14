@@ -9,10 +9,6 @@
     order by seq desc limit #{start}, #{count};
   </select>
 
-  <select id="selectNoticeContent" parameterType="Integer" resultType="com.jeon.board.notice.dto.NoticeDTO">
-    select * from notice where seq={seqNum}
-  </select>
-
   <select id="selectMainList" resultType="com.jeon.board.mian.dto.MainDTO">
     select * from mainview
   </select>
