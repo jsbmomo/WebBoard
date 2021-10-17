@@ -25,4 +25,9 @@ public class NoticeDaoImpl implements NoticeDAO {
     return sqlSession.selectOne(NAMESPACE + ".selectNoticeContent", seqNum);
   }
 
+  @Override
+  public void insertNotice(NoticeDTO notice) {
+    logger.info("create notice contents : " + notice.toString());
+    sqlSession.insert(NAMESPACE + ".selectNoticeContent", notice);
+  }
 }

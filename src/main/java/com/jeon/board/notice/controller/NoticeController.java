@@ -27,12 +27,18 @@ public class NoticeController {
 
     NoticeDTO contents = this.noticeService.selectNoticeContent(uniqueNum);
 
-
-
     model.addAttribute("contents", contents);
-//    mav.setViewName();
 
     return "board/noticePage";
+  }
+
+  @RequestMapping(value = "/create")
+  public void createNotice(NoticeDTO notice) {
+    logger.info("create notice contents : " + notice.toString());
+
+    this.noticeService.insertNotice(notice);
+
+    logger.info("create notice contents : " + notice.toString());
   }
 
 }

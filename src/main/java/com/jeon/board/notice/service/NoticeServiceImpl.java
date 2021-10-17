@@ -24,6 +24,11 @@ public class NoticeServiceImpl implements NoticeService{
     return dao.selectNoticeContent(seqNum);
   }
 
+  @Override
+  public void insertNotice(NoticeDTO notice) {
+    dao.insertNotice(notice);
+  }
+
 }
 
 

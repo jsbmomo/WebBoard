@@ -1,5 +1,6 @@
-import com.jeon.board.notice.dto.NoticeDTO;
 import com.jeon.board.mian.service.MainService;
+import com.jeon.board.notice.dto.NoticeDTO;
+import com.jeon.board.notice.service.NoticeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,10 @@ import java.util.Map;
 public class MainDAOTest {
 
   @Autowired
-  MainService service;
+  MainService main;
+
+  @Autowired
+  NoticeService notice;
 
   @Test
   public void testNotice(){
@@ -23,10 +27,12 @@ public class MainDAOTest {
     map.put("start", 0);
     map.put("count", 5);
 
-    List<NoticeDTO> notice = service.noticeList(map);
+    List<NoticeDTO> mn = main.noticeList(map);
 
-    for(int i = 0; i < notice.size(); i++)
-      System.out.println(notice.get(i).toString());
+    for(int i = 0; i < mn.size(); i++)
+      System.out.println(mn.get(i).toString());
+
+//    NoticeDTO nc =
   }
 
 }

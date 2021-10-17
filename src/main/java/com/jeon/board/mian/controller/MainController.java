@@ -123,4 +123,5 @@ public class MainController {
     return "board/contentsPage";
   }
 
+
 }

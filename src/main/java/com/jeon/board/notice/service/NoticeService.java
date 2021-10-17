@@ -6,4 +6,5 @@ public interface NoticeService {
 
   public NoticeDTO selectNoticeContent(int seqNum);
 
+  public void insertNotice(NoticeDTO notice);
 }

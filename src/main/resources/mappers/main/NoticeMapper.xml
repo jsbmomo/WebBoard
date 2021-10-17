@@ -8,5 +8,10 @@
     select * from notice where SEQ=#{seqNum}
   </select>
 
+  <insert id="insertNotice" parameterType="com.jeon.board.notice.dto.NoticeDTO">
+    INSERT INTO notice
+      (TITLE, WRITER, content, frst_create_time)
+    VALUES(#{title}, #{writer}, #{content}, now());
+  </insert>
 
 </mapper>
