@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joen.board.mappers.story.StoryMapper">
+
+
+  <select id="selectStoryContentOne" parameterType="Integer" resultType="com.jeon.board.domain.notice.dto.NoticeDTO">
+    select * from story where SEQ=#{seqNum}
+  </select>
+
+  <insert id="insertStory" parameterType="com.jeon.board.domain.story.dto.StoryDTO">
+    INSERT INTO notice
+      (TITLE, WRITER, content, frst_create_time)
+    VALUES(#{title}, #{writer}, #{content}, now());
+  </insert>
+
+</mapper>

@@ -3,7 +3,7 @@
 
 <mapper namespace="com.joen.board.mappers.users.UsersMapper">
 
-  <select id="selectUserList" resultType="com.jeon.board.dto.UsersDTO">
+  <select id="selectUserList" resultType="com.jeon.board.global.users.dto.UsersDTO">
     select * from users
   </select>
 </mapper>

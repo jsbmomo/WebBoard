@@ -1,6 +1,6 @@
-import com.jeon.board.mian.service.MainService;
-import com.jeon.board.notice.dto.NoticeDTO;
-import com.jeon.board.notice.service.NoticeService;
+import com.jeon.board.domain.main.service.MainService;
+import com.jeon.board.domain.notice.dto.NoticeDTO;
+import com.jeon.board.domain.notice.service.NoticeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
