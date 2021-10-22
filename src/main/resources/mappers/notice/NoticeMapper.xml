@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="com.joen.board.mappers.notice.NoticeMapper">
 
-
-  <select id="selectNoticeContent" parameterType="Integer" resultType="com.jeon.board.domain.notice.dto.NoticeDTO">
+  <select id="selectNoticeContent" parameterType="Integer" resultType="noticeDto">
     select * from notice where SEQ=#{seqNum}
   </select>
 
-  <insert id="insertNotice" parameterType="com.jeon.board.domain.notice.dto.NoticeDTO">
+  <insert id="insertNotice" parameterType="noticeDto">
     INSERT INTO notice
       (TITLE, WRITER, content, frst_create_time)
     VALUES(#{title}, #{writer}, #{content}, now());
   </insert>
+
+  <update id="updateNotice" parameterType="noticeDto">
+    update notice set TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
+    where seq = #{seq};
+  </update>
 
 </mapper>

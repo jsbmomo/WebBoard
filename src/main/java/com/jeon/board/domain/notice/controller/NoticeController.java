@@ -41,4 +41,12 @@ public class NoticeController {
     logger.info("create notice contents : " + notice.toString());
   }
 
+  @RequestMapping(value = "/update")
+  public int updateNotice(NoticeDTO notice) {
+    logger.info("insert notice contants : " + notice.toString());
+
+    int result = this.noticeService.updateNotice(notice);
+
+    return result;
+  }
 }

@@ -29,6 +29,9 @@ public class NoticeServiceImpl implements NoticeService{
     dao.insertNotice(notice);
   }
 
+  public int updateNotice(NoticeDTO notice) {
+    return dao.updateNotice(notice);
+  }
 }
 
 

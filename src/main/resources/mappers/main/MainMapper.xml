@@ -3,21 +3,21 @@
 
 <mapper namespace="com.joen.board.mappers.main.MainMapper">
 
-  <select id="noticeList" parameterType="java.util.HashMap" resultType="com.jeon.board.domain.notice.dto.NoticeDTO">
+  <select id="noticeList" parameterType="java.util.HashMap" resultType="mainDto">
     select seq, title, writer, frst_create_time, content
     from notice
     order by seq desc limit #{start}, #{count};
   </select>
 
-  <select id="selectMainList" resultType="com.jeon.board.domain.main.dto.MainDTO">
+  <select id="selectMainList" resultType="mainDto">
     select * from mainview
   </select>
 
-  <select id="selectContents" resultType="com.jeon.board.domain.main.dto.MainDTO" parameterType="Integer">
+  <select id="selectContents" resultType="mainDto" parameterType="Integer">
     select * from mainview where seq=#{value}
   </select>
 
-  <insert id="insertContents" parameterType="com.jeon.board.domain.main.dto.MainDTO">
+  <insert id="insertContents" parameterType="mainDto">
     insert into mainview(
         TITLE, WRITER, CONTENT
     ) VALUES (
@@ -25,7 +25,7 @@
     )
   </insert>
 
-  <update id="updateContents" parameterType="com.jeon.board.domain.main.dto.MainDTO" >
+  <update id="updateContents" parameterType="mainDto" >
     update mainview set TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
     where seq = #{seq};
   </update>

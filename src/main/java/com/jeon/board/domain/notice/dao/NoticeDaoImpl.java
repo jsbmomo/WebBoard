@@ -30,4 +30,9 @@ public class NoticeDaoImpl implements NoticeDAO {
     logger.info("create notice contents : " + notice.toString());
     sqlSession.insert(NAMESPACE + ".selectNoticeContent", notice);
   }
+
+  @Override
+  public int updateNotice(NoticeDTO notice) {
+    return sqlSession.update(NAMESPACE + "/updateNotice", notice);
+  }
 }
