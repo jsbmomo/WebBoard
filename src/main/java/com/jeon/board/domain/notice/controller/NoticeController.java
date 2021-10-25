@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping(value = "/notice")
 public class NoticeController {
@@ -23,9 +24,7 @@ public class NoticeController {
 
   @RequestMapping(value = "/{seq}")
   public String boardContents(Model model, @PathVariable("seq") int uniqueNum) {
-    logger.info("======SELECT Notice======");
-
-    NoticeDTO contents = this.noticeService.selectNoticeContent(uniqueNum);
+    NoticeDTO contents = noticeService.selectNoticeContent(uniqueNum);
 
     model.addAttribute("contents", contents);
 
@@ -36,7 +35,7 @@ public class NoticeController {
   public void createNotice(NoticeDTO notice) {
     logger.info("create notice contents : " + notice.toString());
 
-    this.noticeService.insertNotice(notice);
+    noticeService.insertNotice(notice);
 
     logger.info("create notice contents : " + notice.toString());
   }
@@ -45,7 +44,7 @@ public class NoticeController {
   public int updateNotice(NoticeDTO notice) {
     logger.info("insert notice contants : " + notice.toString());
 
-    int result = this.noticeService.updateNotice(notice);
+    int result = noticeService.updateNotice(notice);
 
     return result;
   }

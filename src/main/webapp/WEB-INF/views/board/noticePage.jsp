@@ -22,7 +22,7 @@
 
   <div>수정일</div>
   <div>
-    <input type="text" id="noticeUpdateDate" value="${contents.title}" />
+    <input type="text" id="noticeUpdateDate" value="${contents.last_update_time}" />
   </div>
 
   <div>게시물 번호</div>

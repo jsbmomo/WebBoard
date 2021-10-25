@@ -1,15 +1,12 @@
 package com.jeon.board.domain.main.controller;
 
 
-import com.jeon.board.domain.main.dto.MainDTO;
-import com.jeon.board.domain.notice.dto.NoticeDTO;
 import com.jeon.board.domain.main.service.MainServiceImpl;
+import com.jeon.board.domain.notice.dto.NoticeDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +26,7 @@ public class MainController {
 
   @Autowired
   private MainServiceImpl mainService;
+
 
   @RequestMapping(value = "")
   public ModelAndView mainPage() {
@@ -79,22 +77,5 @@ public class MainController {
 
     return mav;
   }
-
-  @RequestMapping(value = "/board/{seq}")
-  public String boardContents(Model model, @PathVariable("seq") int uniqueNum) {
-    logger.info("======SELECT CONTNETS======");
-
-    MainDTO contents = this.mainService.selectContents(uniqueNum);
-
-
-
-    model.addAttribute("contents", contents);
-//    mav.setViewName();
-
-    return "board/noticePage";
-  }
-
-
-
 
 }

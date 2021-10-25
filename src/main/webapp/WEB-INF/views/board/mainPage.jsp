@@ -134,8 +134,7 @@
   function noticeMove(noticeSeq) {
     // event.stopPropagation();
     console.log(noticeSeq);
-    // location.href = "/notice/" + noticeSeq;
-    location.href = "/board/main/board/" + noticeSeq;
+    location.href = "/board/notice/" + noticeSeq;
   }
 
 </script>
