@@ -8,7 +8,7 @@ public class NoticeDTO {
   private String title;
   private String writer;
   private String content;
-  private String frst_create_time;
+  private Date frst_create_time;
   private Date last_update_time;
 
 
@@ -44,11 +44,11 @@ public class NoticeDTO {
     this.content = content;
   }
 
-  public String getFrst_create_time() {
+  public Date getFrst_create_time() {
     return frst_create_time;
   }
 
-  public void setFrst_create_time(String frst_create_time) {
+  public void setFrst_create_time(Date frst_create_time) {
     this.frst_create_time = frst_create_time;
   }
 

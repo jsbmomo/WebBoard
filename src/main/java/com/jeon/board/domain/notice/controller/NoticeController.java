@@ -10,6 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -21,6 +26,20 @@ public class NoticeController {
   @Autowired
   private NoticeServiceImpl noticeService;
 
+
+  @RequestMapping(value = "")
+  public ModelAndView noticeList() {
+    Map<String, Integer> page = new HashMap<String, Integer>();
+    page.put("count", 20);
+
+    List<NoticeDTO> list = noticeService. selectNoticeAll(page);
+
+    ModelAndView view = new ModelAndView();
+    view.addObject("noticelist", view);
+    view.setViewName("story");
+
+    return view;
+  }
 
   @RequestMapping(value = "/{seq}")
   public String boardContents(Model model, @PathVariable("seq") int uniqueNum) {

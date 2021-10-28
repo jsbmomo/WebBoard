@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 
 @Repository("noticeDAO")
 public class NoticeDaoImpl implements NoticeDAO {
@@ -18,6 +21,10 @@ public class NoticeDaoImpl implements NoticeDAO {
   @Autowired
   private SqlSession sqlSession;
 
+  @Override
+  public List<NoticeDTO> selectNoticeAll(Map<String, Integer> page){
+    return sqlSession.selectList(NAMESPACE + ".selectNoticeAll", page);
+  }
 
   @Override
   public NoticeDTO selectNoticeContent(int seqNum) {

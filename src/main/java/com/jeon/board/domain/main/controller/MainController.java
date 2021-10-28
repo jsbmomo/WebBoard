@@ -32,6 +32,7 @@ public class MainController {
   public ModelAndView mainPage() {
     logger.info("main page");
 
+    /* 상위 5개의 공지사항을 가져오기 위해 작성 */
     Map<String, Integer> page = new HashMap<String, Integer>();
     page.put("start", 0);
     page.put("count", 5);
@@ -40,8 +41,6 @@ public class MainController {
 
     List<NoticeDTO> nc = mainService.noticeList(page);
 //    List<MainDTO> nc = mainService.selectMainList();
-
-
 
     logger.debug("SIZE : " + nc.size());
     logger.debug("DATA : " + nc.get(0).toString());
@@ -66,7 +65,7 @@ public class MainController {
     logger.debug(request.getParameter("count"));
 
 
-//
+
 //    page.put("start", request.getParameter("start");
 //    page.put("count", request.getParameter("count");;
 //    mainService.noticeList();
