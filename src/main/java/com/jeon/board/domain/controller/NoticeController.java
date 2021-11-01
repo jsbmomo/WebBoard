@@ -1,8 +1,8 @@
-package com.jeon.board.domain.notice.controller;
+package com.jeon.board.domain.controller;
 
 
-import com.jeon.board.domain.notice.dto.NoticeDTO;
-import com.jeon.board.domain.notice.service.NoticeServiceImpl;
+import com.jeon.board.domain.dto.NoticeDTO;
+import com.jeon.board.domain.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class NoticeController {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  private NoticeServiceImpl noticeService;
+  private NoticeService noticeService;
 
 
   @RequestMapping(value = "")
@@ -42,7 +42,7 @@ public class NoticeController {
   }
 
   @RequestMapping(value = "/{seq}")
-  public String boardContents(Model model, @PathVariable("seq") int uniqueNum) {
+  public String noticeContents(Model model, @PathVariable("seq") int uniqueNum) {
     NoticeDTO contents = noticeService.selectNoticeContent(uniqueNum);
 
     model.addAttribute("contents", contents);
@@ -66,5 +66,10 @@ public class NoticeController {
     int result = noticeService.updateNotice(notice);
 
     return result;
+  }
+
+  @RequestMapping(value = "/remove")
+  public void removeNotice() {
+
   }
 }

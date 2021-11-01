@@ -1,37 +1,34 @@
-import com.jeon.board.domain.main.service.MainService;
-import com.jeon.board.domain.notice.dto.NoticeDTO;
-import com.jeon.board.domain.notice.service.NoticeService;
+import com.jeon.board.domain.dto.MainDTO;
+import com.jeon.board.domain.service.MainService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
+@WebAppConfiguration
+@ContextConfiguration(locations = "classpath:mybatis-config.xml")
 @ExtendWith(SpringExtension.class)
 public class MainDAOTest {
 
-  @Autowired
+
   MainService main;
 
-  @Autowired
-  NoticeService notice;
+//  @Autowired
+//  NoticeService notice;
+
+
 
   @Test
   public void testNotice(){
 
-    Map<String, Integer> map = new HashMap<String, Integer>();
-    map.put("start", 0);
-    map.put("count", 5);
+    List<MainDTO> list = main.selectMainList();
 
-    List<NoticeDTO> mn = main.noticeList(map);
-
-    for(int i = 0; i < mn.size(); i++)
-      System.out.println(mn.get(i).toString());
-
+    for(MainDTO mn : list)
+      System.out.println(mn.toString());
 //    NoticeDTO nc =
   }
 

@@ -11,8 +11,8 @@
   </settings>
 
   <typeAliases>
-    <typeAlias type="com.jeon.board.domain.notice.dto.NoticeDTO" alias="noticeDto" />
-    <typeAlias type="com.jeon.board.domain.main.dto.MainDTO" alias="mainDto" />
+    <typeAlias type="com.jeon.board.domain.dto.NoticeDTO" alias="noticeDto" />
+    <typeAlias type="com.jeon.board.domain.dto.MainDTO" alias="mainDto" />
   </typeAliases>
 
 </configuration>

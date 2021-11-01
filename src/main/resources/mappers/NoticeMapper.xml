@@ -4,8 +4,12 @@
 
 <mapper namespace="com.joen.board.mappers.notice.NoticeMapper">
 
+  <select id="selectNoticeAll" resultType="noticeDto">
+    SELECT * FROM notice;
+  </select>
+
   <select id="selectNoticeContent" parameterType="Integer" resultType="noticeDto">
-    select * from notice where SEQ=#{seqNum}
+    SELECT * FROM notice WHERE SEQ=#{seqNum}
   </select>
 
   <insert id="insertNotice" parameterType="noticeDto">
@@ -15,8 +19,8 @@
   </insert>
 
   <update id="updateNotice" parameterType="noticeDto">
-    update notice set TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
-    where seq = #{seq};
+    UPDATE notice SET TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
+    WHERE seq = #{seq};
   </update>
 
 </mapper>

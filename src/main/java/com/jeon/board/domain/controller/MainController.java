@@ -1,8 +1,9 @@
-package com.jeon.board.domain.main.controller;
+package com.jeon.board.domain.controller;
 
 
-import com.jeon.board.domain.main.service.MainServiceImpl;
-import com.jeon.board.domain.notice.dto.NoticeDTO;
+import com.jeon.board.domain.dto.NoticeDTO;
+import com.jeon.board.domain.service.MainService;
+import com.jeon.board.domain.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +24,10 @@ public class MainController {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  private MainServiceImpl mainService;
+  private MainService mainService;
 
+  @Autowired
+  private NoticeService noticeService;
 
   @RequestMapping(value = "")
   public ModelAndView mainPage() {
@@ -39,7 +40,7 @@ public class MainController {
 
     logger.info("START : " + page.size());
 
-    List<NoticeDTO> nc = mainService.noticeList(page);
+    List<NoticeDTO> nc = noticeService.selectNoticeAll(page);
 //    List<MainDTO> nc = mainService.selectMainList();
 
     logger.debug("SIZE : " + nc.size());
@@ -52,29 +53,5 @@ public class MainController {
     return mv;
   }
 
-  @RequestMapping(value = "/notice")
-  public ModelAndView notice(HttpServletRequest request, HttpServletResponse response){
-    logger.debug("DEBUG Level 테스트");
-    logger.info("INFO Level 테스트");
-    logger.warn("Warn Level 테스트");
-    logger.error("ERROR Level 테스트");
-
-    Map<String, String> page = new HashMap<String, String>();
-
-    logger.debug(request.getParameter("start"));
-    logger.debug(request.getParameter("count"));
-
-
-
-//    page.put("start", request.getParameter("start");
-//    page.put("count", request.getParameter("count");;
-//    mainService.noticeList();
-
-    ModelAndView mav = new ModelAndView();
-    mav.addObject("message", "TEST TEXT");
-    mav.setViewName("board/mainPage");
-
-    return mav;
-  }
 
 }

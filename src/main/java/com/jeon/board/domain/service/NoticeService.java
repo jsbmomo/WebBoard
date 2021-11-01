@@ -1,8 +1,8 @@
-package com.jeon.board.domain.notice.service;
+package com.jeon.board.domain.service;
 
 
-import com.jeon.board.domain.notice.dao.NoticeDAO;
-import com.jeon.board.domain.notice.dto.NoticeDTO;
+import com.jeon.board.domain.dao.NoticeDAO;
+import com.jeon.board.domain.dto.NoticeDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 @Service
-public class NoticeServiceImpl implements NoticeService{
+public class NoticeService {
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   private static final String NAMESPACE = "com.joen.board.mappers.main.NoticeMapper";
@@ -21,18 +21,15 @@ public class NoticeServiceImpl implements NoticeService{
   @Autowired
   private NoticeDAO dao;
 
-  @Override
   public List<NoticeDTO> selectNoticeAll(Map<String, Integer> page){
     return dao.selectNoticeAll(page);
   }
 
-  @Override
   public NoticeDTO selectNoticeContent(int seqNum) {
     logger.info("select Notice contents : " + seqNum);
     return dao.selectNoticeContent(seqNum);
   }
 
-  @Override
   public void insertNotice(NoticeDTO notice) {
     dao.insertNotice(notice);
   }

@@ -1,4 +1,4 @@
-package com.jeon.board.domain.story.dto;
+package com.jeon.board.domain.dto;
 
 import java.util.Date;
 

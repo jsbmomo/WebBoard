@@ -1,15 +1,15 @@
-package com.jeon.board.domain.main.dto;
+package com.jeon.board.domain.dto;
 
 import java.util.Date;
 
-public class MainDTO  {
+public class NoticeDTO {
 
   private int seq;
   private String title;
   private String writer;
   private String content;
-  private Date regDate;
-  private int cnt;
+  private Date frst_create_time;
+  private Date last_update_time;
 
 
   public int getSeq() {
@@ -44,31 +44,31 @@ public class MainDTO  {
     this.content = content;
   }
 
-  public Date getRegDate() {
-    return regDate;
+  public Date getFrst_create_time() {
+    return frst_create_time;
   }
 
-  public void setRegDate(Date regDate) {
-    this.regDate = regDate;
+  public void setFrst_create_time(Date frst_create_time) {
+    this.frst_create_time = frst_create_time;
   }
 
-  public int getCnt() {
-    return cnt;
+  public Date getLast_update_time() {
+    return last_update_time;
   }
 
-  public void setCnt(int cnt) {
-    this.cnt = cnt;
+  public void setLast_update_time(Date last_update_time) {
+    this.last_update_time = last_update_time;
   }
 
   @Override
   public String toString() {
-    return "MainDTO{" +
+    return "NoticeDTO{" +
         "seq=" + seq +
         ", title='" + title + '\'' +
         ", writer='" + writer + '\'' +
         ", content='" + content + '\'' +
-        ", regDate=" + regDate +
-        ", cnt=" + cnt +
+        ", frst_create_time='" + frst_create_time + '\'' +
+        ", last_update_time='" + last_update_time + '\'' +
         '}';
   }
 }
