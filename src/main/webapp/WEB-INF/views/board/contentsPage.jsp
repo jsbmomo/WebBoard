@@ -13,5 +13,4 @@
   <h2>${mainWriter}</h2>
   <h2>${mainContent}</h2>
   <h2>${mainData}</h2><h2>${mainCnt}</h2>
-
 </body>

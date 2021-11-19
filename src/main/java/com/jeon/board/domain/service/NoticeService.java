@@ -30,12 +30,16 @@ public class NoticeService {
     return dao.selectNoticeContent(seqNum);
   }
 
-  public void insertNotice(NoticeDTO notice) {
-    dao.insertNotice(notice);
+  public int insertNotice(NoticeDTO notice) {
+    return dao.insertNotice(notice);
   }
 
   public int updateNotice(NoticeDTO notice) {
     return dao.updateNotice(notice);
+  }
+
+  public void removeNotice(int seqNum) {
+    dao.removeNotice(seqNum);
   }
 }
 

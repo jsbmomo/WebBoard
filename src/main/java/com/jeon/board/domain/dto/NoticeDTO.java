@@ -1,15 +1,13 @@
 package com.jeon.board.domain.dto;
 
-import java.util.Date;
-
 public class NoticeDTO {
 
   private int seq;
   private String title;
   private String writer;
   private String content;
-  private Date frst_create_time;
-  private Date last_update_time;
+  private String frst_create_time;
+  private String last_update_time;
 
 
   public int getSeq() {
@@ -44,19 +42,19 @@ public class NoticeDTO {
     this.content = content;
   }
 
-  public Date getFrst_create_time() {
+  public String getFrst_create_time() {
     return frst_create_time;
   }
 
-  public void setFrst_create_time(Date frst_create_time) {
+  public void setFrst_create_time(String frst_create_time) {
     this.frst_create_time = frst_create_time;
   }
 
-  public Date getLast_update_time() {
+  public String getLast_update_time() {
     return last_update_time;
   }
 
-  public void setLast_update_time(Date last_update_time) {
+  public void setLast_update_time(String last_update_time) {
     this.last_update_time = last_update_time;
   }
 

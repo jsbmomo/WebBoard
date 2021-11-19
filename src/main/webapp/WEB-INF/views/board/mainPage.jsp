@@ -108,9 +108,39 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <form action="/board/notice/create" method="post">
+        <input type="text" name="title" />
+        <input type="text" name="writer" />
+        <input type="text" name="content" />
+        <button type="submit">입력</button>
+      </form>
+      <button onclick="btnClick();">ajax send</button>
+    </div>
   </main>
 
 <script type='text/javascript'>
+
+  function btnClick() {
+    let xhrNotice = new XMLHttpRequest();
+
+    let jsonData = "{'seq': '1','title': '테스트 입니다.','writer': '관리자','content': 'test contents :)','frst_create_time': '2021-10-20','last_update_time': '2021-10-20'}";
+
+    xhrNotice.open('POST', '/board/notice/create');
+    xhrNotice.setRequestHeader("Content-Type", "application/json");
+    xhrNotice.onreadystatechange = function() { // Call a function when the state changes.
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        // Request finished. Do processing here.
+        console.log("Request finished");
+      }
+    }
+    xhrNotice.send(jsonData);
+    xhrNotice.onload = (res) => {
+      console.log(res);
+    }
+  }
+
   console.log("page start");
   document.onload = function() {
     let xhr = new XMLHttpRequest();

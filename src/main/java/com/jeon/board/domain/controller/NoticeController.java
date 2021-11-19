@@ -6,10 +6,11 @@ import com.jeon.board.domain.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -36,7 +37,7 @@ public class NoticeController {
 
     ModelAndView view = new ModelAndView();
     view.addObject("noticelist", view);
-    view.setViewName("story");
+    view.setViewName("/board/noticePage"); /// /
 
     return view;
   }
@@ -50,26 +51,34 @@ public class NoticeController {
     return "board/noticePage";
   }
 
-  @RequestMapping(value = "/create")
-  public void createNotice(NoticeDTO notice) {
-    logger.info("create notice contents : " + notice.toString());
+  @PostMapping(value = "/create")
+  public ResponseEntity<String> createNotice(@RequestBody NoticeDTO notice) {
 
-    noticeService.insertNotice(notice);
+    logger.info("create notice contents : " + notice);
 
-    logger.info("create notice contents : " + notice.toString());
+    Map<String, String> result = new HashMap<String, String>();
+    result.put("result", notice.toString());
+//    if (noticeService.insertNotice(notice) == 1) {
+//      result.put("result", "success");
+//    } else {
+//      result.put("result", "failed");
+//    }
+
+    return new ResponseEntity<String>(notice.toString() != null ? notice.toString() : "falied", HttpStatus.OK);
   }
 
-  @RequestMapping(value = "/update")
+  @PostMapping(value = "/update")
   public int updateNotice(NoticeDTO notice) {
     logger.info("insert notice contants : " + notice.toString());
+
 
     int result = noticeService.updateNotice(notice);
 
     return result;
   }
 
-  @RequestMapping(value = "/remove")
-  public void removeNotice() {
-
+  @RequestMapping(value = "/remove/{seq}")
+  public void removeNotice(@PathVariable("seq") int uniqueNum) {
+    noticeService.removeNotice(uniqueNum);
   }
 }

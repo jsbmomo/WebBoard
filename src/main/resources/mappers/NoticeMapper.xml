@@ -15,7 +15,8 @@
   <insert id="insertNotice" parameterType="noticeDto">
     INSERT INTO notice
       (TITLE, WRITER, content, frst_create_time)
-    VALUES(#{title}, #{writer}, #{content}, now());
+    VALUES
+      (#{title}, #{writer}, #{content}, now());
   </insert>
 
   <update id="updateNotice" parameterType="noticeDto">
@@ -23,4 +24,7 @@
     WHERE seq = #{seq};
   </update>
 
+  <delete id="removeNotice" parameterType="Integer" >
+    DELETE FROM notice WHERE seq=#{seqNum};
+  </delete>
 </mapper>

@@ -52,4 +52,15 @@ public class StoryController {
   }
 
 
+  @RequestMapping(value = "/create")
+  public void createStory(StoryDTO story) {
+    service.insertStory(story);
+  }
+
+  @RequestMapping(value = "/remove/{seq}")
+  public void removeStory(@PathVariable("seq") int uniqueNum) {
+    service.removeStory(uniqueNum);
+  }
+
+
 }

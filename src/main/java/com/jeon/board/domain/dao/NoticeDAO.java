@@ -29,12 +29,16 @@ public class NoticeDAO {
     return sqlSession.selectOne(NAMESPACE + ".selectNoticeContent", seqNum);
   }
 
-  public void insertNotice(NoticeDTO notice) {
+  public int insertNotice(NoticeDTO notice) {
     logger.info("create notice contents : " + notice.toString());
-    sqlSession.insert(NAMESPACE + ".selectNoticeContent", notice);
+    return sqlSession.insert(NAMESPACE + ".selectNoticeContent", notice);
   }
 
   public int updateNotice(NoticeDTO notice) {
     return sqlSession.update(NAMESPACE + "/updateNotice", notice);
+  }
+
+  public void removeNotice(int seqNum) {
+    sqlSession.delete(NAMESPACE + "/removeNotice", seqNum);
   }
 }

@@ -4,21 +4,21 @@
 <mapper namespace="com.joen.board.mappers.main.MainMapper">
 
   <select id="noticeList" parameterType="java.util.HashMap" resultType="noticeDto">
-    select seq, title, writer, frst_create_time, content
-    from notice
-    order by seq desc limit #{start}, #{count};
+    SELECT seq, title, writer, frst_create_time, content
+    FROM notice
+    ORDER BY seq DESC limit #{start}, #{count};
   </select>
 
   <select id="selectMainList" resultType="mainDto">
-    select * from mainview
+    SELECT * FROM mainview
   </select>
 
   <select id="selectContents" resultType="mainDto" parameterType="Integer">
-    select * from mainview where seq=#{value}
+    SELECT * FROM mainview WHERE seq=#{value}
   </select>
 
   <insert id="insertContents" parameterType="mainDto">
-    insert into mainview(
+    INSERT INTO mainview(
         TITLE, WRITER, CONTENT
     ) VALUES (
         #{title}, #{writer}, #{content}
@@ -26,12 +26,12 @@
   </insert>
 
   <update id="updateContents" parameterType="mainDto" >
-    update mainview set TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
-    where seq = #{seq};
+    UPDATE mainview SET TITLE=#{title}, WRITER=#{writer}, CONTENT=#{content}
+    WHERE seq = #{seq};
   </update>
 
   <delete id="removeContents" parameterType="Integer">
-    delete from mainview where seq=#{value}
+    DELETE FROM mainview WHERE seq=#{value}
   </delete>
 
 </mapper>
