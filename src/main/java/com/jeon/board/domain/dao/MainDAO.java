@@ -5,9 +5,9 @@ import com.jeon.board.domain.dto.MainDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Repository("mainDAO")
@@ -16,7 +16,7 @@ public class MainDAO {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   private static final String NAMESPACE = "com.joen.board.mappers.main.MainMapper";
 
-  @Resource(name = "sqlSession")
+  @Autowired
   private SqlSession sqlSession;
 
   public List<MainDTO> selectMainList() {

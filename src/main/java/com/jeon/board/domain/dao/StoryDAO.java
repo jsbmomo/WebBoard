@@ -2,9 +2,9 @@ package com.jeon.board.domain.dao;
 
 import com.jeon.board.domain.dto.StoryDTO;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -13,7 +13,7 @@ public class StoryDAO {
 
   private static final String NAMESPACE = "com.joen.board.mappers.story.Mapper";
 
-  @Resource(name = "sqlSession")
+  @Autowired
   private SqlSession session;
 
   public List<StoryDTO> selectStoryList() {

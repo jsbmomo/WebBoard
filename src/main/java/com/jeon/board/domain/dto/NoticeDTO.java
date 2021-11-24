@@ -1,14 +1,14 @@
 package com.jeon.board.domain.dto;
 
+
 public class NoticeDTO {
 
   private int seq;
   private String title;
   private String writer;
   private String content;
-  private String frst_create_time;
+  private String first_create_time;
   private String last_update_time;
-
 
   public int getSeq() {
     return seq;
@@ -42,12 +42,12 @@ public class NoticeDTO {
     this.content = content;
   }
 
-  public String getFrst_create_time() {
-    return frst_create_time;
+  public String getFirst_create_time() {
+    return first_create_time;
   }
 
-  public void setFrst_create_time(String frst_create_time) {
-    this.frst_create_time = frst_create_time;
+  public void setFirst_create_time(String first_create_time) {
+    this.first_create_time = first_create_time;
   }
 
   public String getLast_update_time() {
@@ -65,7 +65,7 @@ public class NoticeDTO {
         ", title='" + title + '\'' +
         ", writer='" + writer + '\'' +
         ", content='" + content + '\'' +
-        ", frst_create_time='" + frst_create_time + '\'' +
+        ", first_create_time='" + first_create_time + '\'' +
         ", last_update_time='" + last_update_time + '\'' +
         '}';
   }

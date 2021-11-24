@@ -125,7 +125,15 @@
   function btnClick() {
     let xhrNotice = new XMLHttpRequest();
 
+    let today = new Date();
     let jsonData = "{'seq': '1','title': '테스트 입니다.','writer': '관리자','content': 'test contents :)','frst_create_time': '2021-10-20','last_update_time': '2021-10-20'}";
+    let obj = new Object();
+    obj.seq = 1;
+    obj.title = "테스트 타이틀입네다.";
+    obj.writer = "관리자";
+    obj.content = "내용을 입력해주세요 :)";
+    let jsonObj = JSON.stringify(obj);
+    console.log(jsonObj);
 
     xhrNotice.open('POST', '/board/notice/create');
     xhrNotice.setRequestHeader("Content-Type", "application/json");
@@ -135,7 +143,8 @@
         console.log("Request finished");
       }
     }
-    xhrNotice.send(jsonData);
+
+    xhrNotice.send(jsonObj);
     xhrNotice.onload = (res) => {
       console.log(res);
     }

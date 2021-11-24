@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,5 +55,22 @@ public class MainController {
     return mv;
   }
 
+
+  @RequestMapping(value = "/call")
+  public void callApi(@RequestBody Map<String, Object> value) {
+    logger.info("value : " + value.get("title"));
+  }
+
+  @PostMapping("/call-post")
+  public void callPost(@RequestBody Map<String, Object> value) {
+    logger.info("value : " + value.get("title"));
+  }
+
+  @RequestMapping(value = "/call-api")
+  public void callApi(NoticeDTO value) {
+    logger.info("value : " + value.toString());
+  }
+
+  
 
 }

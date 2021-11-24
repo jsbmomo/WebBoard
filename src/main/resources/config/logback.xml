@@ -3,7 +3,7 @@
 <!-- 30초마다 설정 파일의 변경을 확인하고, 파일이 변경되면 다시 로딩 -->
 <configuration scan="true" scanPeriod="30 seconds">
   <!-- logback이 정상 종료되도록 -->
-  <shutdownHook />
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
 
   <!-- console에 로그 -->
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

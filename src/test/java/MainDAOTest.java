@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 
 @WebAppConfiguration
-@ContextConfiguration(locations = "classpath:mybatis-config.xml")
+@ContextConfiguration(locations = "classpath:WEB-INF/spring/servlet/mybatis-config.xml")
 @ExtendWith(SpringExtension.class)
 public class MainDAOTest {
 

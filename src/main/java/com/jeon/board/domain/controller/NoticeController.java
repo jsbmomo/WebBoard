@@ -6,6 +6,7 @@ import com.jeon.board.domain.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+class Test {
+  private List<Integer> ids;
+  private String name;
+}
 
 @Controller
 @RequestMapping(value = "/notice")
@@ -51,10 +56,31 @@ public class NoticeController {
     return "board/noticePage";
   }
 
-  @PostMapping(value = "/create")
-  public ResponseEntity<String> createNotice(@RequestBody NoticeDTO notice) {
+  @GetMapping(value = "/test")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void test(@RequestParam("title") String test) {
+    logger.info("test : {}", test);
+  }
 
-    logger.info("create notice contents : " + notice);
+  //
+  @ResponseStatus(HttpStatus.OK)
+  @ResponseBody
+  @RequestMapping(path="/insert", produces="application/json", consumes = "application/json")
+  public void insertNotice(@RequestBody Map<String, Object> notice) {
+
+    Map<String, Object> test = new HashMap<String, Object>();
+//    NoticeDTO result = notice;
+
+
+    logger.info("INSERT : " + notice.get("title"));
+
+//    return result;
+  }
+
+  @PostMapping(value = "/create", consumes = {"application/json"})
+  public ResponseEntity<String> createNotice(@RequestBody NoticeDTO notice) throws Exception {
+
+    logger.info("create notice contents : " + notice.toString());
 
     Map<String, String> result = new HashMap<String, String>();
     result.put("result", notice.toString());
@@ -64,7 +90,10 @@ public class NoticeController {
 //      result.put("result", "failed");
 //    }
 
-    return new ResponseEntity<String>(notice.toString() != null ? notice.toString() : "falied", HttpStatus.OK);
+    HttpHeaders resHeader = new HttpHeaders();
+    resHeader.add("Content-Type", "application/json;charset=UTF-8");
+
+    return new ResponseEntity<String>(notice.toString() != null ? notice.toString() : "falied", resHeader, HttpStatus.OK);
   }
 
   @PostMapping(value = "/update")
