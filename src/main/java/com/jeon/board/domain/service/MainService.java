@@ -15,7 +15,7 @@ import java.util.List;
 public class MainService {
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
-  private static final String NAMESPACE = "com.joen.board.mappers.main.MainMapper";
+  private static final String NAMESPACE = "com.jeon.board.mappers.main.MainMapper";
 
   @Autowired
   private MainDAO dao;

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.joen.board.mappers.notice.NoticeMapper">
+<mapper namespace="com.jeon.board.mappers.notice.NoticeMapper">
 
   <select id="selectNoticeAll" resultType="noticeDto">
-    SELECT * FROM notice;
+    SELECT * FROM notice
   </select>
 
   <select id="selectNoticeContent" parameterType="Integer" resultType="noticeDto">

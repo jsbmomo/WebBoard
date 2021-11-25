@@ -33,17 +33,7 @@
               <th>조회</th>
             </tr>
             </thead>
-            <tbody>
-            <c:forEach items="${notice}" var="notice">
-<%--              <tr onClick="window.open('링크주소','','')">--%>
-              <tr style="cursor: pointer;" onClick="noticeMove(`${notice.seq}`);">
-                <td><c:out value="${notice.seq}"/></td>
-                <td><c:out value="${notice.title}"/></td>
-                <td><c:out value="${notice.writer}"/></td>
-                <td><c:out value="${notice.frst_create_time}"/></td>
-                <td>0</td>
-              </tr>
-            </c:forEach>
+            <tbody id="noticeFixList">
             </tbody>
           </table>
         </div>
@@ -121,6 +111,32 @@
   </main>
 
 <script type='text/javascript'>
+
+  window.onload = dashBoardCall;
+
+  function dashBoardCall() {
+    console.log("START dashboardcall")
+    $.ajax({
+      url: "/board/main/dashboard",
+      type: "POST",
+      success: function(data) {
+        let json = JSON.stringify(data);
+        console.log(json);
+        // let res = "";
+        // for (let i = 0; i < json.length; i++) {
+        //   res += "<tr style='cursor: pointer;' onClick='" + noticeMove(json[i].seq) + "'>"
+        //     + "<td>" + json[i].seq + "</td>"
+        //     + "<td>" + json[i].title + "</td>"
+        //     + "<td>" + json[i].writer + "</td>"
+        //     + "<td>" + json[i].regDate + "</td>"
+        //     + "</tr>";
+        // }
+      },
+      error: function(data) {
+        alert("Network err");
+      }
+    })
+  }
 
   function btnClick() {
     let xhrNotice = new XMLHttpRequest();

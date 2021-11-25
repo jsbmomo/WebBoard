@@ -4,24 +4,24 @@ import com.jeon.board.domain.dto.NoticeDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 
 @Repository("noticeDAO")
 public class NoticeDAO {
 
-  private static final String NAMESPACE = "com.joen.board.mappers.notice.NoticeMapper";
+  private static final String NAMESPACE = "com.jeon.board.mappers.notice.NoticeMapper";
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @Autowired
+  @Resource
   private SqlSession sqlSession;
 
-  public List<NoticeDTO> selectNoticeAll(Map<String, Integer> page){
-    return sqlSession.selectList(NAMESPACE + ".selectNoticeAll", page);
+  public List<NoticeDTO> selectNoticeAll(){
+    logger.info("DTO START");
+    return sqlSession.selectList(NAMESPACE + ".selectNoticeAll");
   }
 
   public NoticeDTO selectNoticeContent(int seqNum) {

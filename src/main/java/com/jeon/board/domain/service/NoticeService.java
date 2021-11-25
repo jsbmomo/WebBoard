@@ -9,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 
 @Service
 public class NoticeService {
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
-  private static final String NAMESPACE = "com.joen.board.mappers.main.NoticeMapper";
+  private static final String NAMESPACE = "com.jeon.board.mappers.notice.NoticeMapper";
 
   @Autowired
   private NoticeDAO dao;
 
-  public List<NoticeDTO> selectNoticeAll(Map<String, Integer> page){
-    return dao.selectNoticeAll(page);
+  public List<NoticeDTO> selectNoticeAll(){
+    logger.info("select notice content all : ");
+    return dao.selectNoticeAll();
   }
 
   public NoticeDTO selectNoticeContent(int seqNum) {

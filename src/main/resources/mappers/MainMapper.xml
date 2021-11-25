@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.joen.board.mappers.main.MainMapper">
+<mapper namespace="com.jeon.board.mappers.main.MainMapper">
 
   <select id="noticeList" parameterType="java.util.HashMap" resultType="noticeDto">
     SELECT seq, title, writer, frst_create_time, content

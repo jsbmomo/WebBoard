@@ -38,11 +38,11 @@ public class NoticeController {
     Map<String, Integer> page = new HashMap<String, Integer>();
     page.put("count", 20);
 
-    List<NoticeDTO> list = noticeService. selectNoticeAll(page);
+    List<NoticeDTO> list = noticeService. selectNoticeAll();
 
     ModelAndView view = new ModelAndView();
     view.addObject("noticelist", view);
-    view.setViewName("/board/noticePage"); /// /
+    view.setViewName("board/noticePage"); /// /
 
     return view;
   }
