@@ -21,15 +21,17 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-  <link href="${path}/assets/css/styles.css" rel="stylesheet" />
+  <link href="/resources/css/styles.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="${path}/assets/js/scripts.js"></script>
+  <script src="/resources/js/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-  <script src="${path}/assets/assets/demo/chart-area-demo.js"></script>
-  <script src="${path}/assets/assets/demo/chart-bar-demo.js"></script>
+  <script src="/resources/assets/demo/chart-area-demo.js"></script>
+  <script src="/resources/assets/demo/chart-bar-demo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-  <script src="${path}/assets/js/datatables-simple-demo.js"></script>
+  <script src="/resources/js/datatables-simple-demo.js"></script>
+
+  <script type="text/javascript" src="<c:url value="../../../resources/js/jquery-3.6.0.min.js"/>"></script>
 </head>
 
 <!-- Bootstrap 적용 후, Tiles 미동작 문제 해결.
@@ -39,6 +41,9 @@
     참고. https://freehoon.tistory.com/130 -->
 
 <body class="sb-nav-fixed">
+<script>
+  console.log(${path});
+</script>
   <tiles:insertAttribute name="header"/>
   <div id="layoutSidenav">
     <div id="layoutSidenav_content">
@@ -47,7 +52,6 @@
     </div>
   </div>
   <tiles:insertAttribute name="foot" />
-  <script type="text/javascript" src="<c:url value="../../../resources/js/jquery-3.6.0.min.js"/>"></script>
 </body>
 
 </html>

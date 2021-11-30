@@ -31,8 +31,9 @@
     </property>
   </bean>
 
-  <mvc:annotation-driven/>
   <mvc:resources mapping="/resources/**" location="/resources/" />
+
+  <mvc:annotation-driven/>
 
   <mvc:interceptors>
     <mvc:interceptor>

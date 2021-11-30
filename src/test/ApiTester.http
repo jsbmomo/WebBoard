@@ -12,30 +12,38 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:8080/board/notice/create.do
+POST http://localhost:8080/board/notice/insert
 Content-Type: application/json;charset=utf-8
 
 {
-  "seq": "1",
-  "title": "테스트 입니다.",
-  "writer": "관리자",
-  "content": "test contents :)",
-  "frst_create_time": "2021-10-20",
-  "last_update_time": "2021-10-20"
+  "seq":"1",
+  "title":"테스트 입니다.",
+  "writer":"관리자",
+  "content":"test contents :)"
 }
 
+
 ###
-POST http://localhost:8080/board/notice/create
+POST http://localhost:8080/board/notice/create.do
+Content-Type: application/json
 
 {
-  "seq": "1",
-  "title": "테스트 입니다.",
-  "writer": "관리자",
-  "content": "test contents :)",
-  "frst_create_time": "2021-10-20",
-  "last_update_time": "2021-10-20"
+  "seq":"1",
+  "title":"테스트 입니다.",
+  "writer":"관리자",
+  "content":"test contents :)"
 }
 
 
 ###
-POST http://localhost:8080/board/notice/7
+GET http://localhost:8080/board/notice/test?title=hi
+
+###
+POST http://localhost:8080/board/main/call-post
+Content-Type: application/json
+
+{"title": "Jeon"}
+
+
+###
+POST http://localhost:8080/board/main/dashboard

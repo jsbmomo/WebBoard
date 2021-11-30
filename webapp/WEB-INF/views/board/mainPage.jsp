@@ -117,7 +117,7 @@
   function dashBoardCall() {
     console.log("START dashboardcall")
     $.ajax({
-      url: "/board/main/dashboard",
+      url: "/board/main/dashboard.do",
       type: "POST",
       success: function(data) {
         let json = JSON.stringify(data);
