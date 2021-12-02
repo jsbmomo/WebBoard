@@ -21,7 +21,6 @@ public class MainService {
   private MainDAO dao;
 
   public List<MainDTO> selectMainList(){
-    logger.info("MainServiceImpl print");
     return dao.selectMainList();
   }
 

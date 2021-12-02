@@ -44,6 +44,11 @@ Content-Type: application/json
 
 {"title": "Jeon"}
 
+###
+GET http://localhost:8080/board/main/test
 
 ###
-POST http://localhost:8080/board/main/dashboard
+POST http://localhost:8080/board/main/input.do
+
+
+

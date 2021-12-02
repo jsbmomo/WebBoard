@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jeon.board.domain.dao.PostListDAO">
+
+  <select id="selectPostList" resultType="com.jeon.board.domain.dto.PostListDTO">
+     SELECT * FROM POST_LIST;
+  </select>
+
+  <insert id="insertPost" parameterType="com.jeon.board.domain.dto.PostListDTO">
+    INSERT INTO board.post_list(
+      TITLE, WRITER, CONTENT,
+      KIND, USE_AT, SECRET
+    ) VALUES (
+      #{title}, #{writer}, #{content},
+      #{kind}, #{useAt}, #{secret}
+    );
+  </insert>
+
+
+
+</mapper>

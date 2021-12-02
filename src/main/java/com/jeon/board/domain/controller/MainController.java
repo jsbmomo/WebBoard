@@ -2,15 +2,22 @@ package com.jeon.board.domain.controller;
 
 
 import com.jeon.board.domain.dto.NoticeDTO;
+import com.jeon.board.domain.dto.PostListDTO;
 import com.jeon.board.domain.service.MainService;
 import com.jeon.board.domain.service.NoticeService;
+import com.jeon.board.domain.service.PostListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,9 +36,18 @@ public class MainController {
   @Autowired
   private NoticeService noticeService;
 
+  @Autowired
+  private PostListService postListService;
+
   @GetMapping(value = "")
-  public String mainPage() {
+  public String mainPage(HttpServletRequest request, ModelAndView mav) {
     logger.info("main page");
+
+    Map<String, Object> result = new HashMap<String, Object>();
+    result.put("noticeList", noticeService.selectNoticeAll());
+
+    mav.addObject("mainPage", mav);
+
     return "board/mainPage";
   }
 
@@ -48,27 +64,37 @@ public class MainController {
     return result;
   }
 
-//  @PostMapping(value="/notice/fix")
-//  public List<NoticeDTO> mainService() {
-//
-//    return mav;
-//  }
+  @GetMapping(value = "/test")
+  public @ResponseBody Map<String, Object> testPostList() {
+    logger.info("Post List json");
 
-  @RequestMapping(value = "/call")
-  public void callApi(@RequestBody Map<String, Object> value) {
-    logger.info("value : " + value.get("title"));
+    Map<String, Object> result = new HashMap<String, Object>();
+    result.put("return", postListService.selectPostList());
+
+    return result;
   }
 
-  @PostMapping("/call-post")
-  public void callPost(@RequestBody Map<String, Object> value) {
-    logger.info("value : " + value.get("title"));
-  }
+  @PostMapping(value = "/input")
+  public void insertPost() {
+    logger.info("Post Insert");
 
-  @RequestMapping(value = "/call-api")
-  public void callApi(NoticeDTO value) {
-    logger.info("value : " + value.toString());
-  }
+    PostListDTO postDto = new PostListDTO();
+    postDto.setTitle("제목 입력");
+    postDto.setWriter("admin");
+    postDto.setContent("Test 공지사항");
+    postDto.setKind("NOTICE");
+    postDto.setSecret('N');
+    postDto.setUseAt('Y');
 
-  
+    int result = postListService.insertPost(postDto);
+    logger.info("Code(int) : " + result);
+
+    if (result == 1) {
+      logger.info("INSERT Success");
+    } else {
+      logger.info("INSERT FAILED");
+    }
+
+  }
 
 }
